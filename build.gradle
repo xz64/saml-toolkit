@@ -1,1 +1,27 @@
-apply plugin: 'java-library'
+plugins {
+  id 'java-library'
+  id 'com.diffplug.gradle.spotless' version '3.29.0'
+}
+
+compileJava {
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  testImplementation('org.junit.jupiter:junit-jupiter:5.6.2')
+}
+
+test {
+  useJUnitPlatform()
+}
+
+spotless {
+  java {
+    googleJavaFormat()
+  }
+}

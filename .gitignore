@@ -23,5 +23,9 @@
 hs_err_pid*
 
 # Gradle
-.gradle/
 build/
+
+# Hidden files
+.*
+!/.gitignore
+!/.gitattributes
