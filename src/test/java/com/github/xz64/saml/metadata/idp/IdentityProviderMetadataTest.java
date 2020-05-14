@@ -12,7 +12,7 @@ public class IdentityProviderMetadataTest {
   void keycloakMetadata() throws IOException {
     try (InputStream metadataXmlInputStream =
         this.getClass().getResourceAsStream("/metadata/idp/keycloak.xml")) {
-      IdentityProvider idp = IdentityProvider.fromMetadataXml(metadataXmlInputStream);
+      IdentityProvider idp = new IdentityProvider(metadataXmlInputStream);
       assertEquals("http://localhost:8080/auth/realms/master", idp.getEntityId());
     }
   }
