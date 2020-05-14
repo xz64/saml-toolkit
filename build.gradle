@@ -34,7 +34,3 @@ jacocoTestReport {
     html.enabled = true
   }
 }
-
-coveralls {
-  jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
-}
