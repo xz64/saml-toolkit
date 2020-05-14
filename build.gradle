@@ -1,6 +1,8 @@
 plugins {
   id 'java-library'
+  id 'jacoco'
   id 'com.diffplug.gradle.spotless' version '3.29.0'
+  id 'com.github.kt3k.coveralls' version '2.10.1'
 }
 
 compileJava {
@@ -24,4 +26,15 @@ spotless {
   java {
     googleJavaFormat()
   }
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled = true
+    html.enabled = true
+  }
+}
+
+coveralls {
+  jacocoReportPath 'build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml'
 }
