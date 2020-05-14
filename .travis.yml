@@ -9,7 +9,7 @@ script:
   - ./gradlew --no-daemon --stacktrace --console=plain check
 
 after_success:
-  - ./gradlew jacocoTestReport coveralls
+  - ./gradlew --no-daemon --stacktrace --console=plain jacocoTestReport coveralls
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
