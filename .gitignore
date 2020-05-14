@@ -30,3 +30,4 @@ build/
 !/.gitignore
 !/.gitattributes
 !/.travis.yml
+!/gradle/wrapper/gradle-wrapper.jar
