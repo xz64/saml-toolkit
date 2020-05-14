@@ -23,7 +23,10 @@
 hs_err_pid*
 
 # Gradle
-build/
+/build/
+
+# Eclipse
+/bin/
 
 # Hidden files
 .*
