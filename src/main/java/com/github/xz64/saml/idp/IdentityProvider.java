@@ -8,6 +8,7 @@ import javax.xml.stream.events.XMLEvent;
 
 public class IdentityProvider {
   private String entityID;
+  private boolean wantAuthnRequestsSigned;
 
   /**
    * Parses &lt;EntityDescriptor&gt; portion of idp xml
@@ -24,12 +25,22 @@ public class IdentityProvider {
       }
 
       if (XMLEventUtil.startsTag(event, QNames.ENTITY_DESCRIPTOR)) {
-        entityID = XMLEventUtil.getTagAttribute(event, QNames.ENTITY_ID);
+        entityID = XMLEventUtil.getTagAttribute(event, QNames.ENTITY_ID).get();
+      }
+
+      if (XMLEventUtil.startsTag(event, QNames.IDP_SSO_DESCRIPTOR)) {
+        String attr =
+            XMLEventUtil.getTagAttribute(event, QNames.WANT_AUTHN_REQUESTS_SIGNED).orElse("false");
+        wantAuthnRequestsSigned = "true".equals(attr);
       }
     }
   }
 
   public String getEntityID() {
     return entityID;
+  }
+
+  public boolean wantAuthnRequestsSigned() {
+    return wantAuthnRequestsSigned;
   }
 }
