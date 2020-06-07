@@ -6,6 +6,8 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.XMLEvent;
 
 public class XMLEventUtil {
+  private XMLEventUtil() {}
+
   public static boolean startsTag(XMLEvent event, QName qname) {
     return event.isStartElement() && event.asStartElement().getName().equals(qname);
   }

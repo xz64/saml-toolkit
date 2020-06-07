@@ -7,12 +7,13 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 
 public class XMLReaderUtil {
+  private XMLReaderUtil() {}
+
   public static XMLEventReader getXMLEventReader(InputStream inputStream)
       throws XMLStreamException {
     XMLInputFactory factory = XMLInputFactory.newInstance();
     factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
     factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
-    XMLEventReader eventReader = factory.createXMLEventReader(inputStream);
-    return eventReader;
+    return factory.createXMLEventReader(inputStream);
   }
 }
