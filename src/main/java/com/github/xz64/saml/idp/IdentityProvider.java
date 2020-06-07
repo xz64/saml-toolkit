@@ -25,7 +25,10 @@ public class IdentityProvider {
       }
 
       if (XMLEventUtil.startsTag(event, QNames.ENTITY_DESCRIPTOR)) {
-        entityID = XMLEventUtil.getTagAttribute(event, QNames.ENTITY_ID).get();
+        entityID =
+            XMLEventUtil.getTagAttribute(event, QNames.ENTITY_ID)
+                .orElseThrow(
+                    () -> new RuntimeException("Missing entityID in EntityDescriptor tag!"));
       }
 
       if (XMLEventUtil.startsTag(event, QNames.IDP_SSO_DESCRIPTOR)) {
