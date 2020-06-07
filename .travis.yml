@@ -9,7 +9,7 @@ script:
   - ./gradlew --no-daemon --stacktrace --console=plain check
 
 after_success:
-  - ./gradlew --no-daemon --stacktrace --console=plain jacocoTestReport coveralls
+  - ./gradlew --no-daemon --stacktrace --console=plain jacocoTestReport coveralls sonarqube
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -19,3 +19,9 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+
+addons:
+  sonarcloud:
+    organization: "xz64"
+    token:
+      secure: "uH+XpJ/j2byBRjZ65r0yBPOHB8sf9cyrq+CT73uvHi6j2H5quNq83ubVqRbKbQviaKHA6gabDxeuJ2hsRwoeSGjO8+N5Dlkb4NEvfrVDnG3vGHsthHWI+Ev0lv3+FABdqmUGHCaRjy/sFpsMKpiP5p5iaBdC9+GGmf8IK1jWZ2mDDqDkrjutV7mCIXcxyGhmTyyrBrGbsaL+z4/kVdxNAhjcuve4wggWr8ZQZY4i6v/qkFSBvT7WZxVT7jaRA9CIRwLXUR/Cdy6vOXC2BmhXESFpm4RHYb8bRNx4/jyzuy7otbs0bSS+itDE+buonRlX0FPhPOC9AEZSxjME2ru8uU5V4jQDhCucf4hR6+GZLN/HREBkIMDVl3+sSi64+LcjSPtNjhZh5+LCzQgwXff5A8NQF5WbtQU3R22DZOhREv9Rvt8B9So4Emalhq33OySatQu4eO/TB/raAOInlUa7o0xMbUAyyM32uyI2lzgQXqhLt1IyK6lmtA82cM35C88e2Ae4jbfeAl1LIzUPLrobSYn1ysNCA6CI5SeTpgRrc1uKvOPYZ5XBx3YxnB+paw2Y4QZJlhhoIOmUrFUtRxCs9CjudkRGtTOFlHk1EchNUqpYVgdeo2YTChF/ArPTc4dKIkf+y7u7kjff5PCoXc9iUA4qflHrhMe0c0T+C2iWCZ4="
