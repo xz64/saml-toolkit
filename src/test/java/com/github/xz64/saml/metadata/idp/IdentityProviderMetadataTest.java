@@ -8,7 +8,7 @@ import com.github.xz64.saml.idp.IdentityProvider;
 import java.io.InputStream;
 import org.junit.jupiter.api.Test;
 
-public class IdentityProviderMetadataTest {
+class IdentityProviderMetadataTest {
 
   @Test
   void keycloakMetadata() throws Exception {
